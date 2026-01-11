@@ -1,0 +1,20 @@
+parameters:
+    paths:
+        - app
+        - bootstrap/app.php
+        - config
+        - database
+        - public
+        - routes
+
+    excludePaths:
+            - config/app.php
+            - config/cache.php
+            - config/database.php
+            - config/filesystems.php
+            - config/logging.php
+            - config/mail.php
+            - config/queue.php
+            - config/session.php
+
+    level: max
