@@ -67,7 +67,8 @@
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
-        ]
+        ],
+        "phpstan": "vendor/bin/phpstan analyze"
     },
     "extra": {
         "laravel": {
