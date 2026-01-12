@@ -1,0 +1,29 @@
+name: PHPStan
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get PHP version from composer.json
+        id: php-version
+        run: echo "version=$(jq -r '.require.php' composer.json | grep -oE '[0-9]+\.[0-9]+')" >> $GITHUB_OUTPUT
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ steps.php-version.outputs.version }}
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Run PHPStan
+        run: composer phpstan
