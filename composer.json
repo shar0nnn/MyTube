@@ -6,7 +6,7 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
@@ -67,7 +67,8 @@
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
-        ]
+        ],
+        "phpstan": "vendor/bin/phpstan analyze"
     },
     "extra": {
         "laravel": {
